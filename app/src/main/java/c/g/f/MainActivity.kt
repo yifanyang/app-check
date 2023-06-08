@@ -22,10 +22,11 @@ class MainActivity : AppCompatActivity() {
       PlayIntegrityAppCheckProviderFactory.getInstance()
     )
 
+    val timestamp = System.currentTimeMillis()
     val database = Firebase.database
-    database.getReference("message").setValue(System.currentTimeMillis())
+    database.getReference("message").setValue(timestamp)
 
-    Log.d("yifany", "finished app startup")
-    Toast.makeText(this, "hello", Toast.LENGTH_LONG).show()
+    Log.d("yifany", "wrote to rtdb: $timestamp")
+    Toast.makeText(this, "hello: $timestamp", Toast.LENGTH_LONG).show()
   }
 }
